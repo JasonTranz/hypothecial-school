@@ -1,4 +1,4 @@
-package com.jason.mylibrary
+package com.jason.data
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

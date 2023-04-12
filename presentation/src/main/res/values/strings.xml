@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">littlelives</string>
+
+    <string name="navigation_bar_new_title">News</string>
+    <string name="navigation_bar_check_in_title">Check In</string>
+    <string name="navigation_bar_inbox_title">Inbox</string>
+    <string name="navigation_bar_portfolio_title">Portfolio</string>
+    <string name="navigation_bar_portfolio_more">More</string>
 </resources>
