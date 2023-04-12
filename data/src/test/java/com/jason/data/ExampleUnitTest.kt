@@ -1,4 +1,4 @@
-package com.jason.mylibrary
+package com.jason.data
 
 import org.junit.Test
 
