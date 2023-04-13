@@ -17,6 +17,8 @@ import com.google.accompanist.pager.rememberPagerState
 import com.jason.littlelives.ui.component.BottomNavItem
 import com.jason.littlelives.ui.component.CustomBottomNavigation
 import com.jason.littlelives.ui.component.RegularText
+import com.jason.littlelives.ui.feature.event.view.EventListScreen
+import com.jason.littlelives.ui.feature.event.viewModel.EventListViewModel
 import com.jason.littlelives.ui.feature.home.viewModel.HomeViewModel
 import com.jason.littlelives.ui.feature.root.AppNavigator
 
@@ -24,7 +26,8 @@ import com.jason.littlelives.ui.feature.root.AppNavigator
 @Composable
 fun HomeScreen(
     navigator: AppNavigator,
-    homeViewModel: HomeViewModel
+    homeViewModel: HomeViewModel,
+    eventListViewModel: EventListViewModel
 ) {
     val pagerState = rememberPagerState()
 
@@ -58,13 +61,10 @@ fun HomeScreen(
         ) { index ->
             when (index) {
                 0 -> {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        RegularText(content = "News")
-                    }
+                    EventListScreen(
+                        navigator = navigator,
+                        eventListViewModel = eventListViewModel
+                    )
                 }
                 1 -> {
                     Column(

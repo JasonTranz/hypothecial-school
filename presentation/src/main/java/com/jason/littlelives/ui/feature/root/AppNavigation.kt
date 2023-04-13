@@ -8,6 +8,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.jason.domain.core.NavTarget
+import com.jason.littlelives.ui.feature.event.viewModel.EventListViewModel
 import com.jason.littlelives.ui.feature.home.view.HomeScreen
 import com.jason.littlelives.ui.feature.home.viewModel.HomeViewModel
 import com.jason.littlelives.ui.feature.splash.view.SplashScreen
@@ -20,7 +21,8 @@ import kotlinx.coroutines.flow.onEach
 fun AppNavigation(
     navigator: AppNavigator,
     splashViewModel: SplashViewModel = hiltViewModel(),
-    homeViewModel: HomeViewModel = hiltViewModel()
+    homeViewModel: HomeViewModel = hiltViewModel(),
+    eventListViewModel: EventListViewModel = hiltViewModel(),
 ) {
 
     val navController = rememberAnimatedNavController()
@@ -62,7 +64,8 @@ fun AppNavigation(
         ) {
             HomeScreen(
                 navigator = navigator,
-                homeViewModel = homeViewModel
+                homeViewModel = homeViewModel,
+                eventListViewModel = eventListViewModel
             )
         }
     }

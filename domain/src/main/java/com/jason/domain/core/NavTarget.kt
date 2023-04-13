@@ -6,7 +6,7 @@ sealed class NavTarget(val route: String) {
 
     object HomeScreen : NavTarget(route = "HomeScreen")
 
-    object NewListScreen : NavTarget(route = "NewListScreen")
+    object EventListScreen : NavTarget(route = "EventListScreen")
 
     object CheckInScreen : NavTarget(route = "CheckInScreen")
 

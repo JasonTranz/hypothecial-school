@@ -1,9 +1,9 @@
 package com.jason.littlelives.ui.feature.root
 
 import androidx.navigation.NamedNavArgument
-import com.jason.domain.core.NavTarget
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import com.jason.domain.core.NavTarget
 import javax.inject.Inject
 import javax.inject.Singleton
 
