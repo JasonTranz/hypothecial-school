@@ -8,6 +8,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.jason.domain.core.NavTarget
+import com.jason.littlelives.ui.component.enterTransition
 import com.jason.littlelives.ui.feature.event.viewModel.EventListViewModel
 import com.jason.littlelives.ui.feature.home.view.HomeScreen
 import com.jason.littlelives.ui.feature.home.viewModel.HomeViewModel
@@ -60,7 +61,10 @@ fun AppNavigation(
         }
 
         composable(
-            route = homeRoute
+            route = homeRoute,
+            enterTransition = {
+                enterTransition(listOf(splashRoute))
+            }
         ) {
             HomeScreen(
                 navigator = navigator,
