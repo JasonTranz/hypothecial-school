@@ -11,7 +11,7 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material3.Divider
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -75,14 +75,14 @@ fun CustomBottomNavigation(
         Divider(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(MaterialTheme.colorScheme.secondary),
+                .background(MaterialTheme.colors.surface),
             thickness = 0.5.dp
         )
         BottomNavigation(
             contentColor = Color.Black,
-            backgroundColor = MaterialTheme.colorScheme.surface,
+            backgroundColor = MaterialTheme.colors.background,
             modifier = Modifier
-                .background(color = MaterialTheme.colorScheme.surface)
+                .background(color = MaterialTheme.colors.background)
                 .clip(
                     RoundedCornerShape(
                         topStart = 15.dp,
@@ -107,14 +107,14 @@ fun CustomBottomNavigation(
                             content = stringResource(id = item.resIdTitle),
                             fontSize = 10.sp,
                             color = if (selected) {
-                                MaterialTheme.colorScheme.onBackground
+                                MaterialTheme.colors.primary
                             } else {
-                                MaterialTheme.colorScheme.secondary
+                                MaterialTheme.colors.surface
                             }
                         )
                     },
-                    selectedContentColor = MaterialTheme.colorScheme.onBackground,
-                    unselectedContentColor = MaterialTheme.colorScheme.secondary,
+                    selectedContentColor = MaterialTheme.colors.primary,
+                    unselectedContentColor = MaterialTheme.colors.surface,
                     alwaysShowLabel = true,
                     selected = selected,
                     onClick = {
