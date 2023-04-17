@@ -1,5 +1,6 @@
 package com.jason.littlelives.ui.feature.home.view
 
+import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -30,6 +32,7 @@ fun HomeScreen(
     eventListViewModel: EventListViewModel
 ) {
     val pagerState = rememberPagerState()
+    val context = LocalContext.current
 
     val navigationItems = listOf(
         BottomNavItem.News,
@@ -39,7 +42,9 @@ fun HomeScreen(
         BottomNavItem.More
     )
 
-    BackHandler(false) { }
+    BackHandler(true) {
+        (context as Activity).finish()
+    }
 
     Scaffold(
         modifier = Modifier
