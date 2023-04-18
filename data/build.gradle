@@ -53,4 +53,7 @@ dependencies {
     implementation libs.gson
 
     implementation libs.okHttpLogging
+
+    testImplementation libs.kotlin.coroutine.test
+    testImplementation libs.mockito
 }
