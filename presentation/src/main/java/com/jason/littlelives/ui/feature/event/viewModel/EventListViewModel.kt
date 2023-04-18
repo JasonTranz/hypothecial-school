@@ -1,5 +1,6 @@
 package com.jason.littlelives.ui.feature.event.viewModel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jason.domain.core.AppResult
@@ -21,7 +22,7 @@ import javax.inject.Inject
 @HiltViewModel
 class EventListViewModel @Inject constructor(
     private val getEventListUseCase: GetEventListUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val _eventListViewModelDataState = MutableStateFlow(EventListDataState())
     val eventListViewModelDataState = _eventListViewModelDataState.asStateFlow()
@@ -34,11 +35,16 @@ class EventListViewModel @Inject constructor(
                     when (response) {
                         is AppResult.Success -> {
                             response.data?.let { events ->
-                                _eventListViewModelDataState.update { it.copy(collectionEvents = proceedDataEventToCollection(events)) }
+                                _eventListViewModelDataState.update {
+                                    it.copy(
+                                        events = events,
+                                        collectionEvents = proceedDataEventToCollection(events)
+                                    )
+                                }
                             }
                         }
                         is AppResult.Failure -> {
-                            _eventListViewModelDataState.update { it.copy(errorMsg = it.errorMsg) }
+                            _eventListViewModelDataState.update { it.copy(errorMsg = response.message) }
                         }
                     }
                 }
@@ -50,6 +56,9 @@ class EventListViewModel @Inject constructor(
         val collections = mutableListOf<CollectionEvent>()
 
         for (i in events.indices) {
+            if (events[i].eventDate.isEmpty()) {
+                break
+            }
             val timestamp = events[i].eventDate.toTimeStamp("yyyy-MM-dd'T'hh:mm:ss")
             val date = timestamp.toDate()
             dates[date] = timestamp

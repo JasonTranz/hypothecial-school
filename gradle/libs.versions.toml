@@ -39,6 +39,8 @@ okhttpLoggingInterceptor = "4.7.0"
 
 dagger-hilt = "2.42"
 
+mockito = "5.2.0"
+
 [libraries]
 
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -71,6 +73,7 @@ accompanist-navigation = { module = "com.google.accompanist:accompanist-navigati
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 
 kotlin-coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlin-coroutine-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref =  "coroutines" }
 junit = { module = "junit:junit", version.ref = "junit" }
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
@@ -89,6 +92,7 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runt
 sdp = { module = "com.intuit.sdp:sdp-android", version.ref = "sdp" }
 ssp = { module = "com.intuit.ssp:ssp-android", version.ref = "ssp" }
 
+mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 
 [plugins]
 

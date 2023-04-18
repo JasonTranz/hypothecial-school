@@ -7,7 +7,6 @@ import com.jason.data.entity.EventResponse
 import java.lang.reflect.Type
 import javax.inject.Inject
 
-
 class EventService @Inject constructor() {
 
     fun getEventList(): EventListResponse {
